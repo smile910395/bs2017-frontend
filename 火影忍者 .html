@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
 
-    <title>Temperature convert</title>
+    <title>火影忍者版(小瑪莉)</title>
 
     <!-- Bootstrap core CSS -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -365,17 +365,11 @@
         var a6 = document.getElementById("a6");
         var a7 = document.getElementById("a7");
         var a8 = document.getElementById("a8");
-        // var contant=document.getElementById("contant");
+       
         var full = 0;
         var money = 10;
-        //將方塊加入矩陣中
+      
         function init() {
-
-            // for (var n = 1; n <= 32; n++) {
-            //     var save = document.getElementById("i" + n);
-            //     // save.src = "https://placehold.it/200?text=" + save.id;
-            //     saves.push(save);
-            // }
 
             var n = 0;
             while (true) {
@@ -422,18 +416,12 @@
                 a8.value = "";
 
             } else if (xx <= money) {
-                //    contant.innerHTML="這一局下了" + xx + "注,剩下" + (money - xx) + "代幣";
-                // }
+               
                 var result = document.getElementById("result");
                 var resultnew = document.getElementById("resultnew");
-                // alert("下了" + xx + "注,剩下" + (money - xx) + "代幣");
-                // money = money - xx;
-
-                //位置往前一時 之前的位置要復原
+               
                 saves[nowLocation].className = "img-responsive";
-                nowLocation++; //位置已經移動
-                //現在的位置加紅框
-                // alert(xx + "  " + money)
+                nowLocation++; 
                 if (nowLocation >= saves.length) {
                     nowLocation = 0;
                 }
@@ -527,13 +515,7 @@
             a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, h = 0;
         }
 
-        // document.getElementById("go").onkeyup=function (event){
-        //     if(event.keyCode==13)
-        //         forwardSteps = (32 * 5.5); //160
-        //         forwardSteps += Math.floor(Math.random() * 32);
-              
-        //         setTimeout(startplay, 50);
-        //     }
+       
     </script>
 </body>
 

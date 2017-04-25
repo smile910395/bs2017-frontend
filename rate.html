@@ -119,17 +119,17 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
     <script>
-        //查表
+        
         var taxRateLookup = [
-            {min: 10310000,rate: .5}, //0
-            {min: 4530000,rate: .4}, //1
-            {min: 2420000,rate: .3}, //2
-            {min: 1210000,rate: .2}, //3
-            {min: 540000,rate: .12}, //4
-            {min: 0,rate: .05}, //5
+            {min: 10310000,rate: .5}, 
+            {min: 4530000,rate: .4}, 
+            {min: 2420000,rate: .3}, 
+            {min: 1210000,rate: .2}, 
+            {min: 540000,rate: .12}, 
+            {min: 0,rate: .05}, 
         ];
 
-        //按Enter會出現結果+清空輸入欄
+    
      document.getElementById("input").onkeyup = function (event) {
             if (event.keyCode == 13) {
                 doResult();
@@ -146,14 +146,14 @@
                     if (input <= taxRateLookup[4].min) {
                         paytax += input * taxRateLookup[5].rate;
                         paytax = Math.ceil(paytax);
-                        // alert(paytax);
+                   
                         break;
                     }
                     paytax += (input - taxRateLookup[i].min) * taxRateLookup[i].rate;
                     input = taxRateLookup[i].min;
 
                 } else {
-                    //  alert(i);
+              
                 }
             }
             var result = document.createElement("li");
@@ -163,6 +163,7 @@
             input.value = "";
 
         }
+        
     </script>
 </body>
 

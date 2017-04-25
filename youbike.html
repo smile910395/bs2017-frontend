@@ -70,13 +70,13 @@
         </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-        <h2>Youbike <span class="label label-info">lite</span></h2>
+        <h2>Youbike站點查詢<span class="label label-info">lite</span></h2>
 
         <div class="row">
 
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <div id="areas" class="btn-group-vertical btn-block">
-              <!--區域-->
+           
             </div>
           </div>
 
@@ -84,7 +84,7 @@
           <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
             
             <div id="parkingLots" class="row">
-              <!--停車場-->
+          
             </div>
             
           </div>
@@ -101,7 +101,7 @@
  <script src="https://linzap.github.io/waterfall/waterfall-light.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
  
-<!--載入新標籤-->
+
 
   <script id="parkingLot-tmpl" type="text/x-jquery-tmpl">
     <div class="parkingLot">
@@ -125,7 +125,7 @@
         var $areas = $("#areas"),
             $parkingLots = $("#parkingLots");
 
-        // 利用 AJAX 取得區域資料
+      
         $.ajax({
           type: "GET", 
           url: "http://buildschool-chu.azurewebsites.net/youbike/district",
@@ -133,22 +133,10 @@
           dataType: "jsonp",
           success: function (result, status, xhr) {
             
-            // 清空原來列表中的區域資料
             $areas.empty();
 
-            // 清空原來時刻表列表中的停車場資料
             $parkingLots.empty();
               
-            // $(result).each(function (i, item) { ... })
-            //
-            // 同下，但是更加簡單
-            //
-            // for (var i = 0; i < result.length; i++) {
-            //   var item = result[i];
-            //   ...
-            // }
-            // 
-            // 將每一個區域產生一個 <a class="btn btn-default"></a> 按鈕，並帶入相關資料
             $(result).each(function (i, areaName) {
               $("<a></a>")
                 .attr("href", "#")
@@ -161,22 +149,19 @@
           }
         });
 
-        // 傾聽區域中所有按鈕的點擊事件
         $areas
           .on("click", "a.btn", function (event) {
-            // 注意 this 會是被點擊的對象
+         
             var $a = $(this),
                 areaName = $a.data("area");
             
-            // 視覺控制
-            $a.addClass("btn-primary")            // 點擊的按鈕變色
-              .siblings("a.btn-primary")          // 尋找到之前被點擊變色的按鈕
-              .removeClass("btn-primary");        // 恢復原狀態(不變色)
+           
+            $a.addClass("btn-primary")           
+              .siblings("a.btn-primary")        
+              .removeClass("btn-primary");      
 
-            // 清空原來時刻表列表中的停車場資料
             $parkingLots.empty();
 
-            // 利用 AJAX 取得停車場資料
             $.ajax({
               type: "GET",
               url: "http://buildschool-chu.azurewebsites.net/youbike/index",
@@ -184,12 +169,9 @@
               dataType: "jsonp",
               success: function (result, status, xhr) {
                 $(result).each(function (i, item) {
-                  // 顯示停車場資料
                   $("#parkingLot-tmpl")
-                    // 樣板套用來源資料
                     .tmpl(item)
-                    // 寄放資料
-                    .data("json", item)//把item丟到data
+                    .data("json", item)
                     .hide()
                     .appendTo($parkingLots);
                 }); 
@@ -202,37 +184,10 @@
                 }, 200);
               }
             });
-
-            // 阻止瀏覽器原生的 a 點擊行為（前往連結）
             return false;
           });
 
-        // $parkingLots
-        //   .on("click", "a.address", function (event) {//點擊地址所引發的事件
-        //     var $a = $(this),
-        //         // 取得停車場的 DOM 物件
-        //         $parkingLot = $a.parents(".parkingLot"),//循著a往上找
-        //         // 取出寄放的資料
-        //         parkingLot = $parkingLot.data("json");
-
-        //     // 移除先前的地圖
-        //     $("#parkingLotMap").remove();
-
-        //     // 顯示地圖
-        //     $("<iframe></iframe>")
-        //         .attr("id", "parkingLotMap")
-        //         .attr("width", "100%")
-        //         .attr("height", 300)
-        //         .attr("frameBorder", 1)//框拿掉
-        //         .attr("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyBJADoRetu48862wwZAykrCrUmO3gOGI90&q=" + parkingLot.lat + "," + parkingLot.lng)
-        //         .prependTo($parkingLots);
-        //         //prependTo加到所有列表的最前方
-
-        //     // 申請 Google API key
-        //     // https://developers.google.com/maps/documentation/embed/guide?hl=zh-tw
-
-        //     return false;
-        //   });
+       
     });
   </script>
 </body>

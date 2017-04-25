@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Guess Number</title>
 
     <!-- Bootstrap core CSS -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -151,8 +151,12 @@
             var userguess = document.getElementById("inputguess");
             if (isNaN(userguess.value)) {
                 alert("您輸入的不是數字!!!");
+                userguess.value = "";
+                return;
             } else if (userguess.value.length != 4) {
                 alert("這不是四位數!");
+                userguess.value = "";
+                return;
             }
 
             var repeat = "";
@@ -177,7 +181,7 @@
             guessHistory.className = "list-group-item";
 
             if (counta == 4) {
-                guessHistory.innerHTML = "<span class=\"label success\">" + ab + "</span>" + random;
+                guessHistory.innerHTML = "<span class=\"label label-success\">" + ab + "</span>" + random;
                 document.getElementById("guesshistory").appendChild(guessHistory);
                 alert("win!");
             } else {
@@ -186,6 +190,11 @@
 
             }
             userguess.value = "";
+        }
+         document.getElementById("inputguess").onkeyup = function (event) {
+            if (event.keyCode == 13) {
+                doguess();
+            }
         }
     </script>
 </body>
