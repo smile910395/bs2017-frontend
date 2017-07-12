@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
 
-    <title>火影忍者版(小瑪莉)</title>
+    <title>小瑪莉(火影忍者版)</title>
 
     <!-- Bootstrap core CSS -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -89,12 +89,12 @@
             <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="index.html">首頁 <span class="sr-only">(current)</span></a></li>
-            <li><a href="Bootstrap-1.html" target="_blank">架構1</a></li>
-            <li><a href="Bootstrap-2.html" target="_blank">架構2</a></li>
-            <li><a href="Bootstrap-3.html" target="_blank">架構3</a></li>
+            <li><a href="Bootstrap-1.html" target="_blank">巴哈姆特架構</a></li>
+            <li><a href="Bootstrap-2.html" target="_blank">架構練習1</a></li>
+            <li><a href="Bootstrap-3.html" target="_blank">架構練習2</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="火影忍者 .html" target="_blank">火影忍者</a></li>
+            <li><a href="火影忍者 .html">小瑪莉(火影忍者版)</a></li>
             <li><a href="youbike.html">youbike</a></li>
             <li><a href="rate.html">累進稅率</a></li>
             <li><a href="num.html">生命靈數</a></li>
@@ -385,9 +385,9 @@
             alert("能下注的代幣有" + money + "枚");
             //計算步數
             document.getElementById("go").onclick = function () {
-                //forwardSteps = (32 * 5.5); //160
-                //forwardSteps += Math.floor(Math.random() * 32);
-                forwardSteps=1;
+                forwardSteps = (32 * 5.5); //160
+                forwardSteps += Math.floor(Math.random() * 32);
+                //forwardSteps=1;
                 // startplay();
                 setTimeout(startplay, 50);
             }

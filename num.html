@@ -63,26 +63,26 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="index.html">首頁 <span class="sr-only">(current)</span></a></li>
-            <li><a href="Bootstrap-1.html" target="_blank">架構1</a></li>
-            <li><a href="Bootstrap-2.html" target="_blank">架構2</a></li>
-            <li><a href="Bootstrap-3.html" target="_blank">架構3</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="火影忍者 .html">火影忍者</a></li>
-            <li><a href="youbike.html">youbike</a></li>
-            <li><a href="rate.html">累進稅率</a></li>
-            <li><a href="num.html">生命靈數</a></li>
-            <li><a href="guessnumber.html">猜數字</a></li>
-            <li><a href="Hamster.html" target="_blank">打地鼠</a></li>
-          </ul>
-          <!--<ul class="nav nav-sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="index.html">首頁 <span class="sr-only">(current)</span></a></li>
+          <li><a href="Bootstrap-1.html" target="_blank">巴哈姆特架構</a></li>
+          <li><a href="Bootstrap-2.html" target="_blank">架構練習1</a></li>
+          <li><a href="Bootstrap-3.html" target="_blank">架構練習2</a></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><a href="火影忍者 .html">小瑪莉(火影忍者版)</a></li>
+          <li><a href="youbike.html">youbike</a></li>
+          <li><a href="rate.html">累進稅率</a></li>
+          <li><a href="num.html">生命靈數</a></li>
+          <li><a href="guessnumber.html">猜數字</a></li>
+          <li><a href="Hamster.html" target="_blank">打地鼠</a></li>
+        </ul>
+        <!--<ul class="nav nav-sidebar">
             <li><a href="">Nav item again</a></li>
             <li><a href="">One more nav</a></li> 
             <li><a href="">Another nav item</a></li>
           </ul>-->
-        </div>
+      </div>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
         <div class="row">
@@ -119,33 +119,34 @@
   <script src="scripts/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.zh-TW.min.js"></script>
-    
+
   <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
   <!--<script src="../../assets/js/vendor/holder.min.js"></script>-->
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
   <script>
-$(function () {
-      
-    $("#inputbox").datepicker({
-          language: 'zh-TW',
-          format: 'yyyy-mm-dd'
+    $(function () {
+
+      $("#inputbox").datepicker({
+        language: 'zh-TW',
+        format: 'yyyy-mm-dd'
       });
-})
+    })
+
     function doResult() { //按按鈕
       var inputtext = document.getElementById("inputbox").value;
       var a = birthday(inputtext);
       var name = horoscopeData[a].name; //星座
-      var c = whatnumber(inputtext);//生命靈數數字
-      var comment=horoscopeData[a]["lookup"][c-1];
-      var totle="生命靈數為" + c + ":  " + comment;
-     
+      var c = whatnumber(inputtext); //生命靈數數字
+      var comment = horoscopeData[a]["lookup"][c - 1];
+      var totle = "生命靈數為" + c + ":  " + comment;
 
-      var result=document.createElement("li");
-      result.className="list-group-item";
-      result.innerHTML="<span class=\"label label-danger\">"+ "您的星座為" + "</span>"+ name  + "<br>" +totle;
+
+      var result = document.createElement("li");
+      result.className = "list-group-item";
+      result.innerHTML = "<span class=\"label label-danger\">" + "您的星座為" + "</span>" + name + "<br>" + totle;
       document.getElementById("allResultsHistory").appendChild(result);
-      inputbox.value="";
+      inputbox.value = "";
     }
 
     function birthday(inputtext) {
@@ -195,7 +196,7 @@ $(function () {
         }
         ymd = num.toString();
       }
-      var b=parseInt(ymd);
+      var b = parseInt(ymd);
       return b;
     }
 
@@ -369,8 +370,6 @@ $(function () {
         ]
       }
     };
-
-   
   </script>
 </body>
 
